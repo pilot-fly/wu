@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>五子棋</title>
+	<script type="text/javascript" src='jquery.js'></script>
+	<script type="text/javascript" src='wuziqi.js'></script>
+</head>
+<style type="text/css">
+body{
+	background: url(b3.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin: 0;
+	padding: 0;
+}
+	#c{
+		border:1px solid #000;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		cursor: pointer;
+	}
+	.box{
+		transition:all 1s ease;
+		transform:scale(0,0);
+		width: 500px;
+		height: 500px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		cursor: pointer;
+		background: #fff;
+		z-index: 22;
+		box-shadow: 0 0 10px 1000px rgba(0,0,0,0.6); 
+	}
+	.box-xian{
+		transform:scale(1,1);
+	}
+	#close{
+		display: inline-block;
+		border-radius: 50%;
+		position: absolute;
+		top:-30px;
+		right:-30px;
+		width: 30px;
+		height: 30px;
+		text-align: center;
+		line-height: 25px;
+		background: yellow;
+	}
+	img{
+		width: 100%;
+	}
+	a{
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+	}
+	#blackT{
+		background:url(b4.jpg);
+		background-size: cover;
+		overflow: hidden;
+		border-radius: 50%;
+		position: absolute;
+		top:40px;
+		left:40px;
+	}
+	#whiteT{
+		background:url(b4.jpg);
+		background-size: cover;
+		overflow: hidden;
+		border-radius: 50%;
+		position: absolute;
+		top:40px;
+		right:40px;
+	}
+	#back{
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		background: url(b1.jpg) center center;
+		background-repeat: no-repeat;
+	}
+	#hei{
+		position: absolute;
+		top: 15px;
+		left: 100px;
+		color: #666;
+		font-size: 20px;
+	}
+	#bai{
+		position: absolute;
+		top: 15px;
+		right: 100px;
+		color: #666;
+		font-size: 20px;
+	}
+	#zan{
+		padding: 15px;
+		font-size: 30px;
+		/*background: #A6E22E;*/
+		color: #fff;
+		border-radius: 10px;
+		position: absolute;
+		top: 300px;
+		left: 100px;
+		cursor: pointer;
+	}
+	#jixu{
+		padding: 15px;
+		font-size: 30px;
+		/*background: #A6E22E;*/
+		color: #fff;
+		border-radius: 10px;
+		position: absolute;
+		top: 370px;
+		left: 100px;
+		cursor: pointer;
+	}
+	#xin,#qipu{
+		padding: 15px;
+		font-size: 30px;
+		/*background: #A6E22E;*/
+		color: #fff;
+		border-radius: 10px;
+		position: absolute;
+		top: 440px;
+		left: 74px;
+		cursor: pointer;
+	}
+	#qipu{
+		top:510px;
+	}
+	#gui,.robot,.double{
+		/*border:1px solid #000;*/
+		padding: 15px;		
+		font-size: 30px;
+		background:url(b1.jpg);
+		background-size:cover;
+		background-clip: padding-box;
+		color: #ED488E;
+		/*border-radius: 10px;*/
+		position: absolute;
+		top: 300px;
+		right: 74px;
+		cursor: pointer;
+	}
+	.robot{
+		top:370px; 
+	}
+	.double{
+		top:440px;
+	}
+	#guize{
+		width: 500px;
+		height: 500px;
+		background: pink;
+		border:1px solid #000;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		z-index: 5;
+		cursor: pointer;
+		box-sizing:border-box;
+		padding: 20px;
+		display: none;
+	}
+	h1,h2{
+		text-align: center;
+	}
+	h2{
+		margin-top: 180px;
+	}
+	.info{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin:auto;
+		background:url(b5.jpg);
+		background-size: cover;
+		width: 400px;
+		height: 300px;
+		padding: 20px;
+		transition:all 1s ease;
+		transform:translateY(-600px);
+	}
+	.active{
+		transform:translateY(0);
+	}
+	.red{
+		color:#000;
+	}
+	.win{
+		font-size: 40px;
+		font-weight: 600;
+		margin: 30px auto;
+		text-align: center;
+	}
+	.again{
+		position: absolute;
+		top: 200px;
+		left: 60px;
+		font-size: 20px;
+	}
+	.close{
+		position: absolute;
+		top: 200px;
+		right: 60px;
+		font-size: 20px;
+	}
+</style>
+<body>
+	<!-- <div id='back'></div> -->
+	<canvas width='600' height='600' id='c'>
+		...............
+	</canvas>
+	<div class='box'>
+		<span id='close'>x</span>
+	</div>
+	<canvas width='200' height='200' id='blackT'>
+		...............
+	</canvas>
+	<canvas width='200' height='200' id='whiteT'>
+		...............
+	</canvas>
+	<audio src='097.wav' id='audio'></audio>
+	<audio src='096.wav' id='audio1'></audio>
+	<span id='hei'>黑棋时间</span>
+	<span id='bai'>白棋时间</span>
+	<span id='zan'>暂停</span>
+	<span id='jixu'>继续</span>
+	<span id='xin'>重新开局</span>
+	<span id='qipu'>查看棋谱</span>
+	<span id='gui'>游戏规则</span>
+	<span class='robot'>人机对战</span>
+	<span class='double red'>双人对战</span>
+	<div id='guize'>
+		<h1>游戏规则</h1>
+		<p>     &nbsp;&nbsp;  对局开始时，先由执黑棋一方将一枚棋子落在天元点上，然后由执白棋一方在黑棋 
+			周围的交叉点上落子。但是，为了尊重对方和礼貌起见，持白棋的一方通常将盘面的第 
+			二着棋布在自己河界的一侧，即直止或斜止。此后黑白双方轮流落子，直到某一方首先 
+			在棋盘的横线、纵线或斜线上形成连续五子或五子以上〔仅对白棋而言〕，则该方就算 
+			获胜 
+		</p>
+		<h2 id='fan'>取消</h2>
+	</div>
+	<div class='info'>
+		<div class='win'><span>恭喜</span><span class='text'>黑棋</span><span>获胜!</span></div>
+		<div class='button again'>再来一局</div>
+		<div class='button close'>退出</div>
+	</div>
+</body>
+</html>
