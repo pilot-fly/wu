@@ -1,0 +1,326 @@
+body{
+	width: 100%;
+	height: 100%; 
+	background: url(b3.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	/*-webkit-filter: blur(10px);*/
+}
+
+/*封面*/
+.shouye{
+	animation:xiao 0.5s linear both;
+}
+@keyframes xiao{
+	0%{
+		transform:rotate(0deg) scale(1);
+	}
+	100%{
+		transform:rotate(360deg) scale(0);
+	}
+}
+#feng{
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 800px;
+	height: 600px;
+	top: 20px;
+	background: url(feng.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	transition:all 2s linear;
+	transform:rotate(0deg) scale(0);
+	animation:rote 2s linear both;
+}
+@keyframes rote{
+	0%{
+		transform:rotate(0deg) scale(0);
+	}
+	100%{
+		transform:rotate(360deg) scale(1);
+	}
+}
+#feng .feng-gui{
+	width:200px;
+	height:80px;
+	background:url(b1.jpg);
+	background-size: 100% 100%;
+	text-align: center;
+	line-height: 80px;
+    position: absolute;
+    left:100px;
+    top: 420px;
+    font-size: 30px;
+	color: #296427;
+	font-weight: 600;
+	cursor: pointer;
+
+}
+#feng .feng-jin{
+	width:200px;
+	height:80px;
+	background:url(b1.jpg);
+	background-size: 100% 100%;
+	text-align: center;
+	line-height: 80px;
+    position: absolute;
+	right:100px;
+	top: 420px;
+	font-size: 30px;
+	color: #296427;
+	font-weight: 600;
+	cursor: pointer;
+}
+#feng .guize{
+	animation:xian 2s linear both;
+}
+#feng .guize-xiao{
+	animation:xiao 2s linear both;
+}
+@keyframes xian{
+	0%{
+		transform:rotateX(0deg) scale(0);
+	}
+	100%{
+		transform:rotateX(360deg) scale(1);
+	}
+}
+#mianback{
+    width:1350px;
+	height:637px; 
+	background: url(b3.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin: 0;
+	padding: 0;
+	-webkit-filter: blur(10px);
+}
+/*游戏界面*/
+ #index{
+	display: none; 
+}   
+	#c{
+		border:1px solid #000;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		cursor: pointer;
+	}
+	.box{
+		transition:all 1s ease;
+		transform:scale(0,0);
+		width: 500px;
+		height: 500px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		cursor: pointer;
+		background: #fff;
+		z-index: 22;
+		box-shadow: 0 0 10px 1000px rgba(0,0,0,0.6); 
+	}
+	.box-xian{
+		transform:scale(1,1);
+	}
+	#close{
+		display: inline-block;
+		border-radius: 50%;
+		position: absolute;
+		top:-30px;
+		right:-30px;
+		width: 30px;
+		height: 30px;
+		text-align: center;
+		line-height: 25px;
+		background: yellow;
+	}
+	img{
+		width: 100%;
+	}
+	a{
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+	}
+	#blackT{
+		background:url(b4.jpg);
+		background-size: cover;
+		overflow: hidden;
+		border-radius: 50%;
+		position: absolute;
+		top:40px;
+		left:40px;
+	}
+	#whiteT{
+		background:url(b4.jpg);
+		background-size: cover;
+		overflow: hidden;
+		border-radius: 50%;
+		position: absolute;
+		top:40px;
+		right:40px;
+	}
+	#back{
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		background: url(b1.jpg) center center;
+		background-repeat: no-repeat;
+	}
+	#hei{
+		position: absolute;
+		top: 15px;
+		left: 100px;
+		color: #666;
+		font-size: 20px;
+	}
+	#bai{
+		position: absolute;
+		top: 15px;
+		right: 100px;
+		color: #666;
+		font-size: 20px;
+	}
+	#zan{
+		padding: 15px;
+		font-size: 30px;
+		/*background: #A6E22E;*/
+		color: #fff;
+		border-radius: 10px;
+		position: absolute;
+		top: 300px;
+		left: 100px;
+		cursor: pointer;
+	}
+	#jixu{
+		padding: 15px;
+		font-size: 30px;
+		/*background: #A6E22E;*/
+		color: #fff;
+		border-radius: 10px;
+		position: absolute;
+		top: 370px;
+		left: 100px;
+		cursor: pointer;
+	}
+	#xin,#qipu{
+		padding: 15px;
+		font-size: 30px;
+		/*background: #A6E22E;*/
+		color: #fff;
+		border-radius: 10px;
+		position: absolute;
+		top: 440px;
+		left: 74px;
+		cursor: pointer;
+	}
+	#qipu{
+		top:510px;
+	}
+	#gui,.robot,.double{
+		/*border:1px solid #000;*/
+		padding: 15px;		
+		font-size: 30px;
+		background:url(b1.jpg);
+		background-size:cover;
+		background-clip: padding-box;
+		color: #ED488E;
+		/*border-radius: 10px;*/
+		position: absolute;
+		top: 300px;
+		right: 74px;
+		cursor: pointer;
+	}
+	.robot{
+		top:370px; 
+	}
+	.double{
+		top:440px;
+	}
+	.guize{
+		width: 500px;
+		height: 500px;
+		background:url(guize.jpg);
+		background-size: 100% 100%;
+		border:1px solid #000;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		z-index: 5;
+		cursor: pointer;
+		box-sizing:border-box;
+		padding: 60px;
+		display: none;
+	}
+	.guize p{
+		margin-top: 44px;
+		font-weight: 600;
+		color: #333;
+		line-height: 1.5rem;
+	}
+	h1,h2{
+		text-align: center;
+	}
+	h2{
+		margin-top: 80px;
+	}
+	.info{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin:auto;
+		background:url(b5.jpg);
+		background-size: cover;
+		width: 400px;
+		height: 300px;
+		padding: 20px;
+		transition:all 1s ease;
+		transform:translateY(-600px);
+	}
+	.active{
+		transform:translateY(0);
+	}
+	.red{
+		color:#000;
+	}
+	.win{
+		font-size: 40px;
+		font-weight: 600;
+		margin: 30px auto;
+		text-align: center;
+	}
+	.again{
+		position: absolute;
+		top: 200px;
+		left: 60px;
+		font-size: 20px;
+	}
+	.close{
+		position: absolute;
+		top: 200px;
+		right: 60px;
+		font-size: 20px;
+	}

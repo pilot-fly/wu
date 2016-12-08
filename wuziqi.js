@@ -457,10 +457,21 @@ $(function(){
 
     //游戏规则
     $("#gui").on("click",function(){
-      $("#guize").css("display","block");
+      $(".guize").css("display","block");
     });
-    $("#fan").on("click",function(){
-      $("#guize").css("display","none");
+    $(".fan").on("click",function(){
+      $("#feng .guize").addClass("guize-xiao");
+      $("#index .guize").css("display","none");     
+    });
+
+    $(".feng-gui").on("click",function(){
+      $("#feng .guize").removeClass("guize-xiao").css("display","block");
+    });
+
+    // 进入游戏
+    $(".feng-jin").on("click",function(){
+      $("#index").css("display","block");
+      $("#shouye").addClass("shouye");
     });
 
     //人机和双人的切换
