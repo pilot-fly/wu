@@ -141,7 +141,7 @@ $(function(){
       cp.fillText(time1[Math.floor(de/33)],100,100);
       cp.restore();
 
-      audio1.play();
+      // audio1.play();
 	    
     }
 
@@ -172,7 +172,7 @@ $(function(){
 	     	clearInterval(t);
 	     }
 
-       audio1.play();
+       // audio1.play();
 
       
     }
@@ -466,6 +466,9 @@ $(function(){
 
     $(".feng-gui").on("click",function(){
       $("#feng .guize").removeClass("guize-xiao").css("display","block");
+    });
+    $(".close").on("click",function(){
+      $(".info").removeClass('active');
     });
 
     // 进入游戏
